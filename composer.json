@@ -1,0 +1,32 @@
+{
+    "name":"cmsx/fw",
+    "version":"0.0.1",
+    "type":"library",
+    "description":"CMSx Framework",
+    "homepage":"http://cmsx.ru",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Igor Osharin",
+            "email":"igor@osharin.ru",
+            "homepage":"http://igor.osharin.ru"
+        }
+    ],
+    "require":{
+        "php":">=5.3.0",
+        "cmsx/container":"dev-master",
+        "cmsx/controller":"dev-master",
+        "cmsx/db":"dev-master",
+        "cmsx/form":"dev-master",
+        "cmsx/html":"dev-master",
+        "cmsx/page":"dev-master",
+        "cmsx/template":"dev-master",
+        "cmsx/url":"dev-master"
+    },
+    "autoload":{
+        "psr-0":{
+            "CMSx":"src"
+        }
+    },
+    "minimum-stability":"dev"
+}
