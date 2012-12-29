@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$app = new Application();
+
+/** Можно представиться Symfony 2.x, чтобы получить автокомплит в PHPStorm */
+//$app->setName('Symfony');
+//$app->setVersion('2.0');
+
+$app->run();
