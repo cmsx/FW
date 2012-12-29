@@ -19,9 +19,11 @@
         "cmsx/db":"dev-master",
         "cmsx/form":"dev-master",
         "cmsx/html":"dev-master",
+        "cmsx/image":"dev-master",
         "cmsx/page":"dev-master",
         "cmsx/template":"dev-master",
-        "cmsx/url":"dev-master"
+        "cmsx/url":"dev-master",
+        "symfony/console":"dev-master"
     },
     "autoload":{
         "psr-0":{
