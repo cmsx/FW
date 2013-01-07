@@ -18,15 +18,19 @@ class Install extends Command
       ->setDescription('Разворачивает дистрибутив приложения')
       ->addArgument('path', InputArgument::OPTIONAL, 'Полный путь', false)
       ->addOption('force', 'f', InputOption::VALUE_NONE, 'Заменять файлы, даже если они существуют')
-      ->addOption('details', 'd', InputOption::VALUE_NONE, 'Отображать подробную информацию')
-      ->addOption('dummy', null, InputOption::VALUE_NONE, 'Включить примеры тестов, классов и команд');
+      ->addOption('details', 'i', InputOption::VALUE_NONE, 'Отображать подробную информацию')
+      ->addOption('dummy', 'd', InputOption::VALUE_NONE, 'Включить примеры тестов, классов и команд')
+      ->addOption('fw-distrib', 'b', InputOption::VALUE_NONE, 'Использовать дистрибутив от FW');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output)
   {
     $output->writeln(HTML::Tag('info', 'Копирую файлы дистрибутива'));
     $pwd = $input->getArgument('path') ? : '.';
-    $this->recursiveCopy($pwd . DIRECTORY_SEPARATOR . 'distrib', $pwd, $input, $output);
+    $src = $input->getOption('fw-distrib')
+      ? realpath(__DIR__ . '/../../../')
+      : $pwd;
+    $this->recursiveCopy($src . DIRECTORY_SEPARATOR . 'distrib', $pwd, $input, $output);
   }
 
   protected function recursiveCopy($source, $dest, InputInterface $input, OutputInterface $output)
