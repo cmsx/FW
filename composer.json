@@ -27,11 +27,18 @@
     },
     "autoload":{
         "psr-0":{
+            "":"app",
             "Task":"cmd"
         }
     },
     "scripts":{
-        "post-install-cmd":"/usr/bin/env php bin/console fw:install `pwd`"
+        "post-install-cmd":[
+            "/usr/bin/env php bin/console fw:install `pwd`",
+            "/usr/bin/env php bin/console fw:update-tasks"
+        ],
+        "post-update-cmd":[
+            "/usr/bin/env php bin/console fw:update-tasks"
+        ]
     },
     "bin":["bin/console"],
     "config":{

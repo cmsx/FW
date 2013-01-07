@@ -1,0 +1,3 @@
+# Список команд в системе. Обновляется автоматически с помощью fw:update-tasks
+Task\FW\Install
+Task\FW\UpdateTasks

@@ -5,12 +5,28 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
-$app = new Application('CMSx FW', '0.dev');
+$app = new Application('CMSx', '0.0.1');
 
 /** Можно представиться Symfony 2.x, чтобы получить автокомплит для команд в PHPStorm */
 //$app->setName('Symfony');
 //$app->setVersion('2.0');
 
-$app->add(new \Task\FW\Install());
+$p = __DIR__ . '/../inc/paths.php';
+if (is_file($p)) {
+  require_once $p;
+
+  // Загружаем список команд. Обновляется через fw:update-tasks
+  if (is_file(CMD_LIST)) {
+    $cmd_arr = file(CMD_LIST, FILE_IGNORE_NEW_LINES);
+    foreach ($cmd_arr as $cmd) {
+      $cmd = trim($cmd);
+      if (!empty($cmd) && '#' != substr($cmd, 0, 1) && class_exists($cmd)) {
+        $app->add(new $cmd);
+      }
+    }
+  }
+} else {
+  $app->add(new \Task\FW\Install());
+}
 
 $app->run();

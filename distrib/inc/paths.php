@@ -12,6 +12,12 @@ define ('DIR_CTRL', DIR_ROOT . '/ctrl');
 define ('DIR_TMPL', DIR_ROOT . '/tmpl');
 /** Папка с тестами */
 define ('DIR_TEST', DIR_ROOT . '/tests');
+/** Папка с консольными командами */
+define ('DIR_CMD', DIR_ROOT . '/cmd');
+/** Список консольных команд */
+define('CMD_LIST', DIR_CMD . '/list');
+/** Список команд заданных вручную */
+define('CMD_MANUAL', DIR_CMD . '/manual');
 /** Папка с временными файлами и кешем */
 define ('DIR_TEMP', DIR_ROOT . '/temp');
 /** Путь к изображениям на сайте - /files */
