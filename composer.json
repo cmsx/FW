@@ -27,8 +27,11 @@
     },
     "autoload":{
         "psr-0":{
-            "CMSx":"src"
+            "Task":"cmd"
         }
+    },
+    "scripts":{
+        "post-install-cmd":"/usr/bin/env php bin/console fw:install `pwd`"
     },
     "bin":["bin/console"],
     "config":{

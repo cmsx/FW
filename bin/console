@@ -5,10 +5,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
-$app = new Application();
+$app = new Application('CMSx FW', '0.dev');
 
-/** Можно представиться Symfony 2.x, чтобы получить автокомплит в PHPStorm */
+/** Можно представиться Symfony 2.x, чтобы получить автокомплит для команд в PHPStorm */
 //$app->setName('Symfony');
 //$app->setVersion('2.0');
+
+$app->add(new \Task\FW\Install());
 
 $app->run();
