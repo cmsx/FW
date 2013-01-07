@@ -4,8 +4,9 @@ require_once __DIR__ . '/../init.php';
 
 class DummyTest extends PHPUnit_Framework_TestCase
 {
-  function testMe()
+  function testAutoload()
   {
-    $this->assertEquals(4, 2*2, 'Не удивительно :)');
+    new Dummy\Thing();
+    new Dummy_Hello();
   }
 }
