@@ -22,7 +22,7 @@ class Task extends Command
   protected function execute(InputInterface $input, OutputInterface $output)
   {
     $str = sprintf(
-      '<info>%s, %s!</info>, <comment>это</comment> <question>пример</question> <error>команды</error>.',
+      '<info>%s, %s!</info> <comment>Это</comment> <question>пример</question> <error>команды</error>.',
       $input->getOption('wow') ? 'Ух-ты' : 'Здравствуйте',
       $input->getArgument('name')
     );
