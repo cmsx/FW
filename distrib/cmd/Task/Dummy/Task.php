@@ -14,11 +14,18 @@ class Task extends Command
   {
     $this
       ->setName('dummy:task')
-      ->setDescription('Пример создания команды');
+      ->setDescription('Пример создания команды')
+      ->addArgument('name', InputArgument::OPTIONAL, 'Имя', 'Пользователь')
+      ->addOption('wow', 'w', InputOption::VALUE_NONE, 'Обрадоваться');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-    $output->writeln('Я ничего не умею.');
+    $str = sprintf(
+      '<info>%s, %s!</info>, <comment>это</comment> <question>пример</question> <error>команды</error>.',
+      $input->getOption('wow') ? 'Ух-ты' : 'Здравствуйте',
+      $input->getArgument('name')
+    );
+    $output->writeln($str);
   }
 }
