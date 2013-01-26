@@ -3,3 +3,6 @@
 # Автоматически добавляется в общий список
 Task\FW\Install
 Task\FW\UpdateTasks
+Task\Schema\Model
+Task\Schema\Create
+Task\Schema\Update

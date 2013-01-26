@@ -12,7 +12,7 @@ $app = new Application('CMSx', '0.0.1');
 //$app->setName('Symfony');
 //$app->setVersion('2.0');
 
-$p = 'inc/paths.php';
+$p = 'inc/init.php';
 if (is_file($p)) {
   require_once $p;
 
