@@ -28,6 +28,7 @@
     "autoload":{
         "psr-0":{
             "":"app",
+            "CMSx":"src",
             "Task":"cmd"
         }
     },

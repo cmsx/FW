@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use CMSx\HTML;
 use CMSx\DB;
+use CMSx\X;
 
 class Create extends Command
 {
@@ -37,9 +38,9 @@ class Create extends Command
     }
 
     /** @var $s \CMSx\DB\Schema */
-    $s = new $schema;
+    $s = new $schema(X::DB());
     $s->createTable($drop);
-    $output->writeln(HTML::Tag('info', sprintf('Таблица %s%s создана', DB::GetPrefix(), $s->getTable())));
+    $output->writeln(HTML::Tag('info', sprintf('Таблица %s%s создана', X::DB()->getPrefix(), $s->getTable())));
 
     if (!$skip) {
       $s->fillTable();

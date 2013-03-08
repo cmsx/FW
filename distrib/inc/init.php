@@ -20,6 +20,3 @@ if (DEVMODE) {
 /** Настройки шаблонизатора */
 \CMSx\Template::SetPath(DIR_TMPL);
 \CMSx\Template::EnableDebug(DEVMODE);
-
-/** Задаем префикс для запросов в БД */
-\CMSx\DB::SetPrefix(PREFIX);

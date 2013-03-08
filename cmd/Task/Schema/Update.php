@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use CMSx\HTML;
 use CMSx\DB;
+use CMSx\X;
 
 class Update extends Command
 {
@@ -33,8 +34,8 @@ class Update extends Command
     }
 
     /** @var $s \CMSx\DB\Schema */
-    $s = new $schema;
+    $s = new $schema(X::DB());
     $s->updateTable();
-    $output->writeln(HTML::Tag('info', sprintf('Таблица %s%s обновлена', DB::GetPrefix(), $s->getTable())));
+    $output->writeln(HTML::Tag('info', sprintf('Таблица %s%s обновлена', X::DB()->getPrefix(), $s->getTable())));
   }
 }

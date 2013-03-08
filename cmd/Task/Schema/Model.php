@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use CMSx\HTML;
+use CMSx\X;
 
 class Model extends Command
 {
@@ -44,7 +45,8 @@ class Model extends Command
       return;
     }
 
-    $s    = new $schema;
+    /** @var $s \CMSx\DB\Schema */
+    $s    = new $schema(X::DB());
     $code = $s->buildModel($classname, $ns);
 
     if (!is_dir($path)) {
