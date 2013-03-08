@@ -20,13 +20,10 @@ CMSx Framework
 **Пример настройки окружения:**
 
     // Настройка подключения к БД. Созданное соединение автоматически сохраняется в "реестр".
-    new Connection('localhost', 'cmsx', 'qwerty', 'cmsx', 'utf8');
+    X::AddConnection('localhost', 'cmsx', 'qwerty', 'cmsx', 'utf8');
 
     // Прописываем путь к папке с шаблонами
     Template::SetPath('/my/path');
-
-    // Задаем префикс для запросов в БД
-    DB::SetPrefix('cmsx_');
 
 **Пример настройки [формы](https://github.com/cmsx/Form):**
 
