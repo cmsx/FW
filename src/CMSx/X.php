@@ -4,7 +4,11 @@ namespace CMSx;
 
 abstract class X
 {
+  /** @var DB */
   protected static $db;
+  /** @var \Auth */
+  protected static $auth;
+  /** Текущие подключения к БД */
   protected static $connections;
 
   public static function AddConnection($host, $user, $pass, $dbname, $charset, $name = null)
@@ -50,5 +54,15 @@ abstract class X
     }
 
     return static::$db;
+  }
+
+  /** @return \Auth */
+  public static function Auth()
+  {
+    if (is_null(static::$auth)) {
+      static::$auth = new \Auth(static::DB());
+    }
+
+    return static::$auth;
   }
 }
