@@ -15,7 +15,7 @@
     "require":{
         "php":">=5.3.0",
         "cmsx/container":"dev-master",
-        "cmsx/controller":"dev-master",
+        "cmsx/kernel":"dev-master",
         "cmsx/db":"dev-master",
         "cmsx/form":"dev-master",
         "cmsx/html":"dev-master",
