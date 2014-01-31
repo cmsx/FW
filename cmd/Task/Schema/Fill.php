@@ -11,7 +11,7 @@ use CMSx\HTML;
 use CMSx\DB;
 use CMSx\X;
 
-class Create extends Command
+class Fill extends Command
 {
   protected function configure()
   {

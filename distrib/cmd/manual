@@ -6,3 +6,4 @@ Task\FW\UpdateTasks
 Task\Schema\Model
 Task\Schema\Create
 Task\Schema\Update
+Task\Schema\Fill
