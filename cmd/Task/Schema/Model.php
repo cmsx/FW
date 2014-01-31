@@ -17,15 +17,15 @@ class Model extends Command
     $this
       ->setName('schema:model')
       ->setDescription('Создание объекта Item на основе схемы')
-      ->addArgument('schema', InputArgument::REQUIRED, 'Схема, по которой генерируется модель')
-      ->addArgument('class', InputArgument::REQUIRED, 'Имя класса')
+      ->addArgument('schema', InputArgument::REQUIRED, 'Схема, по которой генерируется модель в неймспейсе Schema')
+      ->addArgument('class', InputArgument::REQUIRED, 'Имя класса, который сгенерится в неймспейс ORM')
       ->addOption('force', 'f', InputOption::VALUE_NONE, 'Если файл существует - перезаписать');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-    $schema = $input->getArgument('schema');
-    $class  = $input->getArgument('class');
+    $schema = 'Schema\\' . $input->getArgument('schema');
+    $class  = 'ORM\\' . $input->getArgument('class');
     $force  = $input->getOption('force');
     $output->writeln(HTML::Tag('info', sprintf('Генерирую класс модели %s по схеме %s...', $class, $schema)));
 

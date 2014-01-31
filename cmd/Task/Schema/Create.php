@@ -18,14 +18,14 @@ class Create extends Command
     $this
       ->setName('schema:create')
       ->setDescription('Создание таблицы на основе схемы')
-      ->addArgument('schema', InputArgument::REQUIRED, 'Схема, по которой генерируется модель')
+      ->addArgument('schema', InputArgument::REQUIRED, 'Схема в неймспейсе Schema, по которой генерируется модель')
       ->addOption('drop', 'd', InputOption::VALUE_NONE, 'DROP таблицы, если она существует')
       ->addOption('skip-content', 's', InputOption::VALUE_NONE, 'Не загружать начальные данные');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-    $schema = $input->getArgument('schema');
+    $schema = 'Schema\\' . $input->getArgument('schema');
     $drop = (bool)$input->getOption('drop');
     $skip = $input->getOption('skip-content');
 

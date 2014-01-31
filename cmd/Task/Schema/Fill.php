@@ -11,21 +11,21 @@ use CMSx\HTML;
 use CMSx\DB;
 use CMSx\X;
 
-class Update extends Command
+class Create extends Command
 {
   protected function configure()
   {
     $this
-      ->setName('schema:update')
-      ->setDescription('Обновление структуры таблицы на основе схемы')
-      ->addArgument('schema', InputArgument::REQUIRED, 'Схема в неймспейсе Schema, по которой обновляется БД');
+      ->setName('schema:fill')
+      ->setDescription('Заполнение таблицы начальными данными')
+      ->addArgument('schema', InputArgument::REQUIRED, 'Схема в неймспейсе Schema, из которой загружаются данные');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output)
   {
     $schema = 'Schema\\' . $input->getArgument('schema');
 
-    $output->writeln(HTML::Tag('info', 'Обновляем структуру таблицы по схеме ' . $schema));
+    $output->writeln(HTML::Tag('info', 'Загружаем данные по схеме ' . $schema));
 
     if (!class_exists($schema)) {
       $output->writeln(HTML::Tag('error', sprintf('Схема %s не существует!', $schema)));
@@ -35,7 +35,7 @@ class Update extends Command
 
     /** @var $s \CMSx\DB\Schema */
     $s = new $schema(X::DB());
-    $s->updateTable();
-    $output->writeln(HTML::Tag('info', sprintf('Таблица %s%s обновлена', X::DB()->getPrefix(), $s->getTable())));
+    $s->fillTable();
+    $output->writeln(HTML::Tag('info', 'Данные загружены'));
   }
 }
