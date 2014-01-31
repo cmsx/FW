@@ -7,3 +7,5 @@ Task\Schema\Model
 Task\Schema\Create
 Task\Schema\Update
 Task\Schema\Fill
+Task\Schema\Drop
+Task\Schema\Trunc
