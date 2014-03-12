@@ -24,6 +24,7 @@
         "cmsx/template":"dev-master",
         "cmsx/url":"dev-master",
         "cmsx/auth":"dev-master",
+        "cmsx/navigator":"dev-master",
         "symfony/console":"dev-master"
     },
     "autoload":{
